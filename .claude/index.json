@@ -1,0 +1,96 @@
+{
+  "timestamp": "2026-02-04T11:53:47",
+  "project": "3d_horse_cn",
+  "description": "马年3D壁纸生成器 - 基于Chromostereopsis色立体错觉原理的裸眼3D手机壁纸生成应用",
+  "modules": [
+    {
+      "path": "app",
+      "name": "前端应用",
+      "language": "TypeScript/React",
+      "entry": "src/main.tsx",
+      "type": "frontend"
+    }
+  ],
+  "entryPoints": [
+    "app/src/main.tsx",
+    "app/src/App.tsx"
+  ],
+  "interfaces": [
+    "app/src/hooks/useHorseYear3D.ts",
+    "app/src/hooks/useStereo3D.ts",
+    "app/src/data/horsePhrases.ts",
+    "app/src/types/index.ts"
+  ],
+  "configFiles": [
+    "app/package.json",
+    "app/vite.config.ts",
+    "app/tsconfig.json",
+    "app/tailwind.config.js",
+    "app/eslint.config.js",
+    "app/components.json"
+  ],
+  "dataModels": [
+    "app/src/data/horsePhrases.ts",
+    "app/src/types/index.ts"
+  ],
+  "testFiles": [],
+  "coverage": {
+    "totalFilesEstimated": 120,
+    "scannedFiles": 35,
+    "coveragePercent": 29,
+    "scannedPaths": [
+      "app/src/main.tsx",
+      "app/src/App.tsx",
+      "app/src/hooks/useHorseYear3D.ts",
+      "app/src/hooks/useStereo3D.ts",
+      "app/src/hooks/use-mobile.ts",
+      "app/src/data/horsePhrases.ts",
+      "app/src/types/index.ts",
+      "app/src/lib/utils.ts",
+      "app/src/sections/HorsePreview.tsx",
+      "app/src/sections/HorseGallery.tsx",
+      "app/src/sections/HorseInfo.tsx",
+      "app/src/sections/Header.tsx",
+      "app/src/index.css",
+      "app/vite.config.ts",
+      "app/tsconfig.json",
+      "app/tailwind.config.js",
+      "app/eslint.config.js",
+      "app/components.json",
+      "app/package.json",
+      "app/index.html",
+      "app/public/horses/prompts.txt"
+    ],
+    "gaps": [
+      "app/src/components/ui/ - 50+ UI组件未详细扫描",
+      "app/public/horse-*.png - 二进制图片仅记录路径"
+    ]
+  },
+  "ignored": {
+    "patterns": [
+      "node_modules/**",
+      ".git/**",
+      "dist/**",
+      "build/**",
+      "*.png",
+      "*.jpg",
+      "*.jpeg",
+      "*.gif"
+    ],
+    "topSkipped": [
+      {
+        "path": "app/node_modules",
+        "reason": "依赖目录"
+      },
+      {
+        "path": "app/public/horse-*.png",
+        "reason": "二进制图片文件"
+      }
+    ]
+  },
+  "truncated": false,
+  "nextSteps": [
+    "如需深入理解UI组件，建议扫描 app/src/components/ui/ 目录",
+    "如需了解通用3D效果，建议详细阅读 app/src/hooks/useStereo3D.ts"
+  ]
+}
