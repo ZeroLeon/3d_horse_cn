@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import { Download, Shuffle, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ShareButton } from '@/components/ShareButton';
 import type { HorsePhrase } from '@/data/horsePhrases';
 
 interface HorsePreviewProps {
@@ -55,13 +56,13 @@ export const HorsePreview = forwardRef<HTMLCanvasElement, HorsePreviewProps>(
         </div>
         
         {/* 操作按钮 */}
-        <div className="flex gap-3 justify-center">
+        <div className="grid grid-cols-3 gap-3 justify-center max-w-md mx-auto">
           <Button
             onClick={onRandom}
             disabled={isGenerating}
             variant="outline"
             size="lg"
-            className="flex items-center gap-2 px-6 border-[#0500fc] text-[#0500fc] hover:bg-[#0500fc]/10"
+            className="flex items-center gap-2 px-4 border-[#0500fc] text-[#0500fc] hover:bg-[#0500fc]/10"
           >
             <Shuffle className="w-5 h-5" />
             换一换
@@ -70,11 +71,15 @@ export const HorsePreview = forwardRef<HTMLCanvasElement, HorsePreviewProps>(
             onClick={onDownload}
             disabled={isGenerating}
             size="lg"
-            className="flex items-center gap-2 px-8 bg-gradient-to-r from-[#ff0192] to-[#ff3333] hover:opacity-90 text-white shadow-lg"
+            className="flex items-center gap-2 px-4 bg-gradient-to-r from-[#ff0192] to-[#ff3333] hover:opacity-90 text-white shadow-lg"
           >
             <Download className="w-5 h-5" />
-            下载壁纸
+            下载
           </Button>
+          <ShareButton
+            canvasRef={ref as React.RefObject<HTMLCanvasElement>}
+            phrase={phrase}
+          />
         </div>
       </div>
     );
